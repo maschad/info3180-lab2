@@ -8,6 +8,7 @@ This file creates your application.
 
 from app import app
 from flask import render_template, request, redirect, url_for
+import time
 
 
 ###
@@ -27,8 +28,13 @@ def about():
 
 @app.route('/profile')
 def profile():
-        """Render the website's profile page."""
+    """Render the website's profile page."""
     return render_template('profile.html')
+
+@app.route('/profile/<date>')
+def timeinfo(date):
+    """Render the current date"""
+    return "Today is:" +time.strftime("%d/%m/%Y")%date
 
 ###
 # The functions below should be applicable to all Flask apps.
