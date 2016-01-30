@@ -26,15 +26,10 @@ def about():
     """Render the website's about page."""
     return render_template('about.html')
 
-@app.route('/profile')
-def profile():
-    """Render the website's profile page."""
-    return render_template('profile.html')
-
-@app.route('/profile/<date>')
-def timeinfo(date):
+@app.route('/profile/')
+def timeinfo():
     """Render the current date"""
-    return "Today is:" +time.strftime("%d/%m/%Y")%date
+    return render_template('profile.html',date='Today is:' + " " + time.strftime("%a, %b %d %Y"))
 
 ###
 # The functions below should be applicable to all Flask apps.
